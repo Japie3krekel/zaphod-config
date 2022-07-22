@@ -6,6 +6,8 @@ config BOARD_ENABLE_DCDC
 	default y
 	depends on BOARD_ZAPHOD
 
+CONFIG_ZMK_WIDGET_WPM_STATUS=y
+
 if ZMK_DISPLAY
 
 menuconfig ZAPHOD_BONGO_CAT
