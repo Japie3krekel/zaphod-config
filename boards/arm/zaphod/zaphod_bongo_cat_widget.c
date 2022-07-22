@@ -57,7 +57,7 @@ void set_img_src(void *var, lv_anim_value_t val) {
 
 void state_widget_wpm(struct zaphod_bongo_cat_widget *widget, int wpm) {
     LOG_DBG("anim state %d", current_anim_state);
-    while (wpm = 0) {
+    loop:while (wpm = 0) {
 	lv_anim_init(&widget->anim);
         lv_anim_set_var(&widget->anim, widget->obj);
 	lv_anim_set_time(&widget->anim, 1000);
@@ -67,6 +67,9 @@ void state_widget_wpm(struct zaphod_bongo_cat_widget *widget, int wpm) {
 	images = idle_images;
 	current_anim_state = anim_state_idle;
 	lv_anim_start(&widget->anim);
+	if (wpm != 0){
+		break;}
+	goto loop;
 	}
     if (wpm < CONFIG_ZAPHOD_BONGO_CAT_IDLE_LIMIT) {
 	if (current_anim_state != anim_state_idle) {
