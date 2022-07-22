@@ -15,7 +15,6 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
 enum anim_state {
-	anim_state_none,
 	anim_state_idle,
 	anim_state_slow,
 	anim_state_fast
