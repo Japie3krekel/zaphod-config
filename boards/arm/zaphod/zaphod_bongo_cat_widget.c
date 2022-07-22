@@ -53,7 +53,11 @@ void set_img_src(void *var, lv_anim_value_t val) {
     lv_img_set_src(img, images[val]);
 }
 
-if (current_anim_state == anim_state_none){
+
+
+void state_widget_wpm(struct zaphod_bongo_cat_widget *widget, int wpm) {
+    LOG_DBG("anim state %d", current_anim_state);
+    if (current_anim_state == anim_state_none){
 	lv_anim_init(&widget->anim);
         lv_anim_set_var(&widget->anim, widget->obj);
 	lv_anim_set_time(&widget->anim, 1000);
@@ -64,11 +68,8 @@ if (current_anim_state == anim_state_none){
 	images = idle_images;
 	current_anim_state = anim_state_idle;
 	lv_anim_start(&widget->anim);
-}
-
-void state_widget_wpm(struct zaphod_bongo_cat_widget *widget, int wpm) {
-    LOG_DBG("anim state %d", current_anim_state);
-    if (wpm < CONFIG_ZAPHOD_BONGO_CAT_IDLE_LIMIT) {
+	}
+    else if (wpm < CONFIG_ZAPHOD_BONGO_CAT_IDLE_LIMIT) {
 	if (current_anim_state != anim_state_idle) {
 	    LOG_DBG("Set source to idle images!");
             lv_anim_init(&widget->anim);
