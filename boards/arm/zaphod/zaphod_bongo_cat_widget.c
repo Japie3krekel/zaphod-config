@@ -67,8 +67,6 @@ void state_widget_wpm(struct zaphod_bongo_cat_widget *widget, int wpm) {
 	images = idle_images;
 	current_anim_state = anim_state_idle;
 	lv_anim_start(&widget->anim);
-	if (wpm != 0){
-		break;}
 	goto loop;
 	}
     if (wpm < CONFIG_ZAPHOD_BONGO_CAT_IDLE_LIMIT) {
