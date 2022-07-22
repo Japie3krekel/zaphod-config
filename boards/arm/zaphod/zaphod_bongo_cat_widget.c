@@ -77,7 +77,7 @@ void state_widget_wpm(struct zaphod_bongo_cat_widget *widget, int wpm) {
 	    lv_anim_set_time(&widget->anim, 1000);
 	    lv_anim_set_values(&widget->anim, 0, 4);
 	    lv_anim_set_exec_cb(&widget->anim, set_img_src);
-	    lv_anim_set_repeat_count(&widget->anim, 10);
+	    lv_anim_set_repeat_count(&widget->anim, LV_ANIM_REPEAT_INFINITE);
 	    lv_anim_set_repeat_delay(&widget->anim, 100);
 	    images = idle_images;
 	    current_anim_state = anim_state_idle;
