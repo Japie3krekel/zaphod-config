@@ -13,6 +13,7 @@ menuconfig ZAPHOD_BONGO_CAT
     select ZMK_WPM
     select LVGL_USE_IMG
     select LVGL_USE_ANIMATION
+    default y
 
 if ZAPHOD_BONGO_CAT
 
